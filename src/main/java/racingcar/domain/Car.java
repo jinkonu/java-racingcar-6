@@ -3,6 +3,7 @@ package racingcar.domain;
 import java.util.Objects;
 
 import static racingcar.utils.constant.NumberConstant.*;
+import static racingcar.utils.constant.StringConstant.*;
 
 public class Car implements Comparable<Car> {
 
@@ -50,5 +51,11 @@ public class Car implements Comparable<Car> {
     @Override
     public int hashCode() {
         return Objects.hash(location);
+    }
+
+
+    @Override
+    public String toString() {
+        return name + CAR_FORMATTER + LOCATION_FORMATTER.repeat(location);
     }
 }
