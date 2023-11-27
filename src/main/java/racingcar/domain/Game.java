@@ -18,11 +18,10 @@ public class Game {
     }
 
 
-    public Game(String[] names) {
+    public Game(List<String> names) {
         cars = new ArrayList<>();
 
-        for (String name : names)
-           cars.add(new Car(name));
+        names.forEach(name -> cars.add(new Car(name)));
     }
 
 
