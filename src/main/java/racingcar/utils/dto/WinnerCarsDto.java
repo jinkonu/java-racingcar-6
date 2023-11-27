@@ -21,6 +21,6 @@ public class WinnerCarsDto {
 
     @Override
     public String toString() {
-        return FINAL_WINNER_FORM + String.join(CAR_NAME_DELIMITER, name);
+        return FINAL_WINNER_FORM + String.join(NAMES_OUTPUT_DELIMITER, name);
     }
 }

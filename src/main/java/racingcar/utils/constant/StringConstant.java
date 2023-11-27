@@ -12,11 +12,11 @@ public class StringConstant {
 
     /* DTO */
     public static final String FINAL_WINNER_FORM = "최종 우승자 : ";
-    public static final String CAR_NAME_DELIMITER = ", ";
+    public static final String NAMES_OUTPUT_DELIMITER = ", ";
 
 
     /* INPUT */
-    public static final String NAMES_DELIMITER = ",";
+    public static final String NAMES_INPUT_DELIMITER = ",";
 
 
     /* OUTPUT */
