@@ -24,6 +24,11 @@ public class Car implements Comparable<Car> {
         return name;
     }
 
+    public int getLocation() {
+        return location;
+    }
+
+
     public void goFor(int distance) {
         if (isEnough(distance))
             location += distance;
