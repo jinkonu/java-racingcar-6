@@ -26,9 +26,7 @@ public class StringConstant {
 
 
     /* ERROR */
-    public static final String ERROR_PREFIX = "[ERROR] ";
-
     public static final String CAR_NAME_LENGTH_ERROR = "자동차 이름은 " + MAX_NAME_LENGTH +"자 이하로 가능합니다.";
-    public static final String CARS_SIZE_ERROR = "자동차는 최소" + MIN_CARS_SIZE + "개 이상 입력해주세요.";
+    public static final String CARS_SIZE_ERROR = "자동차는 최소 " + MIN_CARS_SIZE + "개 이상 입력해주세요.";
     public static final String INVALID_TURN_VALUE_ERROR = "알맞은 횟수를 입력해주세요.";
 }

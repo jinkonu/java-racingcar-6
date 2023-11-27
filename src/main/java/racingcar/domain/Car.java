@@ -36,7 +36,7 @@ public class Car implements Comparable<Car> {
 
     @Override
     public int compareTo(Car car) {
-        return Integer.compare(this.location, car.location) * COMPARE_REVERSE_NUM;
+        return Integer.compare(this.location, car.location);
     }
 
 

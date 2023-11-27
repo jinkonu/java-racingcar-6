@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -11,6 +12,7 @@ import static racingcar.utils.constant.NumberConstant.*;
 @SuppressWarnings("ALL")
 class CarTest {
 
+    private static final int MOVING_FORWARD = 4;
     private static final String TEST_NAME = "konu";
     private static Car car;
 
@@ -31,23 +33,36 @@ class CarTest {
             assertThat(car.getLocation()).isEqualTo(0);
 
         if (distance >= MIN_VALID_DISTANCE)
-            assertThat(car.getLocation()).isEqualTo(distance);
+            assertThat(car.getLocation()).isEqualTo(1);
     }
 
 
-    @DisplayName("위치가 더 큰 것에 비교하면 음수, 같으면 0, 작은 것에 비교하면 양수")
-    @ValueSource(ints = {4, 5, 6})
-    @ParameterizedTest
-    void compareTo_위치가_더_큰_것에_비교하면_음수_같으면_0_작은_것에_비교하면_음수(int distance) {
-        int testDistance = 5;
-        car.goFor(testDistance);
-
+    @DisplayName("거리가 같은 경우 0을 반환")
+    @Test
+    void compareTo_거리가_같은_경우_0을_반환() {
         Car car2 = Car.create(TEST_NAME);
-        car2.goFor(distance);
 
-        if (distance >  testDistance) assertThat(car.compareTo(car2)).isLessThan(0);
-        if (distance == testDistance) assertThat(car.compareTo(car2)).isZero();
-        if (distance <  testDistance) assertThat(car.compareTo(car2)).isGreaterThan(0);
+        assertThat(car.compareTo(car2)).isZero();
+    }
+
+
+    @DisplayName("거리가 더 작은 경우 음수를 반환")
+    @Test
+    void compareTo_거리가_더_작은_경우_음수를_반환() {
+        Car car2 = Car.create(TEST_NAME);
+        car2.goFor(MOVING_FORWARD);
+
+        assertThat(car.compareTo(car2)).isLessThan(0);
+    }
+
+
+    @DisplayName("거리가 더 큰 경우 양수를 반환")
+    @Test
+    void compareTo_거리가_더_큰_경우_양수를_반환() {
+        Car car2 = Car.create(TEST_NAME);
+        car.goFor(MOVING_FORWARD);
+
+        assertThat(car.compareTo(car2)).isGreaterThan(0);
     }
 
 

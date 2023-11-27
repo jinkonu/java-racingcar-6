@@ -3,7 +3,6 @@ package racingcar.domain;
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.utils.dto.WinnerCarsDto;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -61,9 +60,10 @@ public class Game {
     }
 
     private int getMaxLocation() {
-        Collections.sort(cars);
-
-        return cars.get(ZERO).getLocation();
+        return cars.stream()
+                .max(Car::compareTo)
+                .get()
+                .getLocation();
     }
 
 
