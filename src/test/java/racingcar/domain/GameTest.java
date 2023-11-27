@@ -22,10 +22,13 @@ class GameTest extends NsTest {
     void run_게임_실행() {
         assertRandomNumberInRangeTest(
                 () -> {
-                    run("a, b", "1");
-                    assertThat(output()).contains("a", "b", FINAL_WINNER_FORM + "a");
+                    run("a, b", "2");
+                    assertThat(output()).contains(
+                            "a : -", "b : ",
+                            "a : --", "b : -",
+                            FINAL_WINNER_FORM + "a");
                 },
-                MOVING_FORWARD, STOP
+                MOVING_FORWARD, STOP, MOVING_FORWARD, MOVING_FORWARD
         );
     }
 
