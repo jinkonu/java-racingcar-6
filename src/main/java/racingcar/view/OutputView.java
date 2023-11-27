@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import racingcar.domain.Car;
+import racingcar.utils.dto.WinnerCarsDto;
 
 import static racingcar.utils.constant.StringConstant.*;
 
@@ -23,5 +24,10 @@ public class OutputView {
 
     public static void print(Car car) {
         System.out.println(car);
+    }
+
+
+    public static void print(WinnerCarsDto dto) {
+        System.out.println(dto);
     }
 }
