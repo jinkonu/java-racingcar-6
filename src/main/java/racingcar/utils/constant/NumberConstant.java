@@ -12,7 +12,7 @@ public class NumberConstant {
 
     /* Game */
     public static final int MIN_DISTANCE = 0;
-    public static final int MAX_DISTANCE = 0;
+    public static final int MAX_DISTANCE = 9;
 
 
     /* INPUT */
