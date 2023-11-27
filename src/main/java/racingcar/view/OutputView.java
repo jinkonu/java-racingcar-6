@@ -18,6 +18,7 @@ public class OutputView {
 
 
     public static void printResult() {
+        System.out.println();
         System.out.println(RESULT_FORM);
     }
 
@@ -29,5 +30,9 @@ public class OutputView {
 
     public static void print(WinnerCarsDto dto) {
         System.out.println(dto);
+    }
+
+    public static void printOneLine() {
+        System.out.println();
     }
 }

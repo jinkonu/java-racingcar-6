@@ -21,12 +21,10 @@ public class Game {
     public static void run() {
         Game game = new Game();
 
+        printResult();
         game.tryFor(game.turn);
 
-        printResult();
-
-        WinnerCarsDto winnerCars = WinnerCarsDto.of(game.getWinners());
-        print(winnerCars);
+        print(WinnerCarsDto.of(game.getWinners()));
     }
 
 
@@ -43,23 +41,29 @@ public class Game {
 
 
     private void tryFor(int turn) {
-        IntStream.range(ZERO, turn).forEach(i ->
-                cars.forEach(car -> {
-                    car.goFor(Random.generate());
-                    print(car);
-                })
-        );
+        IntStream.range(ZERO, turn).forEach(i -> {
+            cars.forEach(car -> {
+                car.goFor(Random.generate());
+                print(car);
+            });
+
+            printOneLine();
+        });
     }
 
 
     private List<Car> getWinners() {
-        Collections.sort(cars);
+        int max = getMaxLocation();
 
-        return cars.subList(FIRST_IDX, cars.lastIndexOf(getLast()));
+        return cars.stream()
+                .filter(car -> car.getLocation() == max)
+                .collect(Collectors.toList());
     }
 
-    private Car getLast() {
-        return cars.get(cars.size() - LAST_IDX_OFFSET);
+    private int getMaxLocation() {
+        Collections.sort(cars);
+
+        return cars.get(ZERO).getLocation();
     }
 
 
