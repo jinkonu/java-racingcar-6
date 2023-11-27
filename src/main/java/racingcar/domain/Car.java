@@ -29,13 +29,8 @@ public class Car implements Comparable<Car> {
     }
 
 
-    public void goFor(int distance) {
-        if (isEnough(distance))
-            location += distance;
-    }
-
-    private boolean isEnough(int distance) {
-        return distance >= MIN_VALID_DISTANCE;
+    public void goFor(int value) {
+        if (value >= MIN_VALID_DISTANCE) ++location;
     }
 
 
