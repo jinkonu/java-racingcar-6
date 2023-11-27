@@ -12,7 +12,9 @@ import static racingcar.utils.validator.InputValidator.validateTurn;
 public class InputView {
 
     public static List<String> readNames() {
-        List<String> names = Arrays.stream(readLine().split(NAMES_DELIMITER)).toList();
+        List<String> names = Arrays.stream(readLine().split(NAMES_DELIMITER))
+                .map(String::trim)
+                .toList();
 
         validateNames(names);
         return names;
