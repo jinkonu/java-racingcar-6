@@ -13,4 +13,9 @@ public class NumberConstant {
     /* Game */
     public static final int MIN_DISTANCE = 0;
     public static final int MAX_DISTANCE = 0;
+
+
+    /* INPUT */
+    public static final int MAX_NAME_LENGTH = 5;
+    public static final int MIN_CARS_SIZE = 2;
 }
